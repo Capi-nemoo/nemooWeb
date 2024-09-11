@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on </title>
-    <link>/posts/</link>
+    <link>//localhost:1313/posts/</link>
     <description>Recent content in Posts on </description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 06 Jul 2020 00:00:00 +0800</lastBuildDate>
-    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>strange post with custom js</title>
-      <link>/posts/2020-07-06-strange-post/</link>
+      <link>//localhost:1313/posts/2020-07-06-strange-post/</link>
       <pubDate>Mon, 06 Jul 2020 00:00:00 +0800</pubDate>
-      <guid>/posts/2020-07-06-strange-post/</guid>
+      <guid>//localhost:1313/posts/2020-07-06-strange-post/</guid>
       <description>&lt;p&gt;This post is strange. It also has some custom js.&lt;/p&gt;</description>
     </item>
   </channel>
