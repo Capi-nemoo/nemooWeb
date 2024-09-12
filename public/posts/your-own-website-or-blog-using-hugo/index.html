@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=45331&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="Disclaimer : Guía para usuarios de Unix-based-systems.
+English
+Hola amigazo
+Esto es una guía rápida de cómo hacer tu propio website/blog. Está enfocada para usuarios medianamente avanzados, así que realmente no explicaré nada en detalle.
+1. Hugo
+Hugo es rápido, ligero y perfecto para crear websites con pocos recursos. Lo elegí por su velocidad y flexibilidad para proyectos personales y portafolios. La mayor ventaja que le veo, y lo que más me gusta, es que puedes hacer tu propio template de markdown!!! 🚀">  
+
+  <title>
+    
+      Your Own Website or Blog Using Hugo
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  
+  
+  
+  <link rel="stylesheet" href="//localhost:45331/css/main.01273a70fa873b012d056499c16bb47955e0e7526c34edb73f05ca8f99f488ebc323423c6557f93f9b42a41de0448a25ce9a1ab577d0bf61e36eaf52a4979a1d.css" integrity="sha512-ASc6cPqHOwEtBWSZwWu0eVXg51JsNO23PwXKj5n0iOvDI0I8ZVf5P5tCpB3gRIolzpoatXfQv2Hjbq9SpJeaHQ==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+<a href="/">..</a>
+
+
+<article>
+    <p class="post-meta">
+        <time datetime="2024-09-12 14:05:45 -0500 CDT">
+            2024-09-12
+        </time>
+    </p>
+
+    <h1>Your Own Website or Blog Using Hugo</h1>
+
+    
+
+    <p><em>Disclaimer</em> : Guía para usuarios de Unix-based-systems.</p>
+<p><a href="../posts/Your-Own-Website-or-Blog-Using-Hugo-engl.md">English</a></p>
+<h1 id="hola-amigazo">Hola amigazo</h1>
+<p>Esto es una guía rápida de cómo hacer tu propio website/blog. Está enfocada para usuarios medianamente avanzados, así que realmente no explicaré nada en detalle.</p>
+<h2 id="1-hugo">1. Hugo</h2>
+<p>Hugo es rápido, ligero y perfecto para crear websites con pocos recursos. Lo elegí por su velocidad y flexibilidad para proyectos personales y portafolios. La mayor ventaja que le veo, y lo que más me gusta, es que puedes hacer tu propio template de markdown!!! 🚀</p>
+<h2 id="2-instalación-en-2-minutos">2. Instalación en ~2 Minutos</h2>
+<p>Instalar Hugo es sencillo. Solo tienes que ejecutar uno de estos comandos dependiendo de tu sistema:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install hugo     <span style="color:#0f0"># Para macOS</span>
+</span></span><span style="display:flex;"><span>sudo apt install hugo  <span style="color:#0f0"># Para Linux</span>
+</span></span><span style="display:flex;"><span>sudo pacman -S hugo    <span style="color:#0f0"># Para Linux++</span>
+</span></span></code></pre></div><h2 id="3-crea-tu-website-en-1-comando">3. Crea tu Website en 1 Comando</h2>
+<p>Inicia tu proyecto con este comando:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site mi-website  <span style="color:#0f0"># Esto crea una carpeta (no hace falta ponerlo dentro de otra carpeta)</span>
+</span></span></code></pre></div><h2 id="4-elige-un-tema-y-personalízalo">4. Elige un Tema y Personalízalo</h2>
+<p>Escoge un tema desde Hugo Themes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone URL-TEMA themes/ <span style="color:#0f0">## copialo dentro de la carpeta themes</span>
+</span></span></code></pre></div><p>Ve a Hugo Themes, selecciona un tema, o si te animas, ¡puedes crear el tuyo propio! (al final del post te dejo mis recomendaciones personales). Personaliza el archivo <code>config.toml</code> para ajustar colores, fuentes y más.</p>
+<p>Si tienes problemas o no eres web developer, lo único que tienes que saber es que:</p>
+<ul>
+<li>En <code>content/data</code> van los posts,</li>
+<li>En <code>config.toml</code> (directorio root) va la configuración principal del website.</li>
+</ul>
+<h2 id="5-despliega-fácil-con-netlify-o-github-pages">5. Despliega Fácil con Netlify o GitHub Pages</h2>
+<p>Esta parte fue la más complicada para mí 😅. Nadie te explica cómo hacerlo bien, solo te dicen &ldquo;usa GitHub Pages&rdquo; y listo. Así que aquí va mi tutorial detallado:</p>
+<ol>
+<li>Compra un dominio en Cloudflare (opcional, pero recomendado).</li>
+<li>Ve a Git y verifica el dominio en la sección de Pages dentro de Settings.</li>
+<li>Sube toda la carpeta que creaste con Hugo a tu repo en GitHub.</li>
+<li>Luego, ve a Settings del repo y cliquea Pages.</li>
+<li>Selecciona carpeta root y branch.</li>
+<li>Agrega tu custom domain.</li>
+<li>¡Y ya terminamos! Ahora ve a Actions en tu repo, selecciona New workflow, busca Hugo, y listo, tienes tu nuevo website funcionando.</li>
+</ol>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>

@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/Users/renatorr/Downloads/Github/myWeb/themes/hugo-theme",
+	"sourceRoot": "/home/nemoo1/Documents/github/projects/myWeb",
 	"sources": [
 		"assets/css/main.scss"
 	],

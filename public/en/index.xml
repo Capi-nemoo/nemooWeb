@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ens on </title>
+    <link>//localhost:1313/en/</link>
+    <description>Recent content in Ens on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Sep 2024 14:14:13 -0500</lastBuildDate>
+    <atom:link href="//localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Your Own Website or Blog Using Hugo Engl</title>
+      <link>//localhost:1313/en/your-own-website-or-blog-using-hugo/</link>
+      <pubDate>Thu, 12 Sep 2024 14:14:13 -0500</pubDate>
+      <guid>//localhost:1313/en/your-own-website-or-blog-using-hugo/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Disclaimer&lt;/em&gt;: Guide for Unix-based system users only. -Windows users, no thanks.&lt;/p&gt;&#xA;&lt;h1 id=&#34;hey-buddy&#34;&gt;Hey buddy,&lt;/h1&gt;&#xA;&lt;p&gt;This is a quick guide on how to create your own website/blog. It&amp;rsquo;s aimed at intermediate users, so I won&amp;rsquo;t be explaining anything in detail.&lt;/p&gt;&#xA;&lt;h3 id=&#34;1-hugo&#34;&gt;1. Hugo&lt;/h3&gt;&#xA;&lt;p&gt;Hugo is fast, lightweight, and perfect for building websites with minimal resources. I chose it for its speed and flexibility for personal projects and portfolios. The biggest advantage I see, and what I love the most, is that you can create your own markdown templates!!! 🚀&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

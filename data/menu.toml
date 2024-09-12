@@ -15,9 +15,6 @@ title = "me"
     title = "Texas Tech University"
 
     [[entries.entries.entries]]
-    title = "freshman"
-
-    [[entries.entries.entries]]
     title = "computer engineering"
 
   [[entries.entries]]
@@ -29,7 +26,7 @@ title = "me"
 
    [[entries.entries.entries]]
     title = "email"
-    url = "icloud.work@icloud.com"
+    url = "mailto:icloud.work@icloud.com"
 
    [[entries.entries.entries]]
     title = "youtube"
@@ -58,12 +55,23 @@ title = "me"
   title = "TerminalShare"
   url = "../"
  
-
 [[entries]]
-title = "all posts"
+  title = "all posts"
 
-  [entries.post_list]
+[[entries.entries]]
+title = "English posts"
+  [entries.entries.post_list]
   limit = 5
+  section = "en"
   show_more = true
-  show_more_text = "See archive..."
+  show_more_text = "See more posts..."
+  show_more_url = "posts"
+
+[[entries.entries]]
+title = "espanolo posts"
+
+  [entries.entries.post_list]
+  section = "es"
+  show_more = true
+  show_more_text = "See more posts..."
   show_more_url = "posts"
