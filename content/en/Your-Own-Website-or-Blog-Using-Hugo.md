@@ -1,5 +1,5 @@
 ---
-title: "Your Own Website or Blog Using Hugo Engl"
+title: "Your Own Website or Blog Using Hugo"
 date: 2024-09-12T14:14:13-05:00
 draft: false
 hidden: true

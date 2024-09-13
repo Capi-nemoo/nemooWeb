@@ -6,4 +6,4 @@ draft = false
 
 # Capi_nemoo
 
-Welcome to my personal website and portfolio. Here you will find my projects, blog posts, and more about me.
+I'm experienced in software development, I specialize in C++ and Linux environments. I have a strong focus on servers, system optimization, and custom solutions with tools like Bash Vim and lua.

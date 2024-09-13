@@ -2,76 +2,66 @@
 [[entries]]
 title = "me"
   
-  [[entries.entries]]
-  title = "Renato Ramirez"
+   [[entries.entries]]
+   title = "Renato Ramirez"
 
-  [[entries.entries]]
-  title = "20 year"
+   [[entries.entries]]
+   title = "Lubbock, Texas, US"
 
-  [[entries.entries]]
-  title = "Lubbock, Texas, US"
+   [[entries.entries]]
+   title = "Texas Tech University"
 
-  [[entries.entries]]
-    title = "Texas Tech University"
+        [[entries.entries.entries]]
+        title = "computer engineering"
 
-    [[entries.entries.entries]]
-    title = "computer engineering"
+   [[entries.entries]]
+   title = "my social media"
+        
+	[[entries.entries.entries]]
+    	title = "github"
+    	url = "https://github.com/Capi-nemoo"
 
-  [[entries.entries]]
-  title = "my social media"
+  	[[entries.entries.entries]]
+ 	title ="renato.work@icloud.com"
+	url = "renato.work@icloud.com"
 
-   [[entries.entries.entries]]
-    title = "github"
-    url = "https://github.com/Capi-nemoo"
+   	[[entries.entries.entries]]
+   	title = "youtube"
+   	url = "https://www.youtube.com/@capi_nemoo"
 
-   [[entries.entries.entries]]
-    title = "email"
-    url = "mailto:icloud.work@icloud.com"
-
-   [[entries.entries.entries]]
-    title = "youtube"
-    url = "https://www.youtube.com/@capi_nemoo"
-
-   [[entries.entries.entries]]
-    title = "twitch"
-    url = "https://www.twitch.tv/capi_nemoo"
-  
 [[entries]]
  title = "projects"
 
-  [[entries.entries]]
-  title = "Synth-Net"
-  url = "../"
+   [[entries.entries]]
+   title = "Synth-Net"
+   url = "../"
     
-  [[entries.entries]]
-  title = "RoomateDetector"
-  url = "../"
-  
-  [[entries.entries]]
-  title = "myDotfiles"
-  url = "../"
+   [[entries.entries]]
+   title = "myDotfiles"
+   url = "../"
    
    [[entries.entries]]
-  title = "TerminalShare"
-  url = "../"
+   title = "TerminalShare"
+   url = "../"
  
 [[entries]]
   title = "all posts"
 
-[[entries.entries]]
-title = "English posts"
-  [entries.entries.post_list]
-  limit = 5
-  section = "en"
-  show_more = true
-  show_more_text = "See more posts..."
-  show_more_url = "posts"
+   [[entries.entries]]
+   title = "English posts"
 
-[[entries.entries]]
-title = "espanolo posts"
+  	[entries.entries.post_list]
+  	limit = 5
+  	section = "en"
+  	show_more = true
+  	show_more_text = "See more posts..."
+  	show_more_url = "posts"
 
-  [entries.entries.post_list]
-  section = "es"
-  show_more = true
-  show_more_text = "See more posts..."
-  show_more_url = "posts"
+   [[entries.entries]]
+   title = "Espanol posts"
+
+  	[entries.entries.post_list]
+  	section = "es"
+  	show_more = true
+  	show_more_text = "See more posts..."
+  	show_more_url = "posts"

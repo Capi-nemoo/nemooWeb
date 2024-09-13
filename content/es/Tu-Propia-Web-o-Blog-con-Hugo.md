@@ -1,5 +1,5 @@
 ---
-title: "Your Own Website or Blog Using Hugo"
+title: "Como crear tu promio website en 5m"
 date: 2024-09-12T14:05:45-05:00
 draft: false
 ---
