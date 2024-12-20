@@ -47,21 +47,18 @@ title = "me"
 [[entries]]
   title = "all posts"
 
-   [[entries.entries]]
-   title = "English posts"
-
-  	[entries.entries.post_list]
+  	[entries.post_list]
   	limit = 5
   	section = "en"
   	show_more = true
   	show_more_text = "See more posts..."
   	show_more_url = "posts"
 
-   [[entries.entries]]
-   title = "Espanol posts"
+#   [[entries.entries]]
+#   title = "Espanol posts"
 
-  	[entries.entries.post_list]
-  	section = "es"
-  	show_more = true
-  	show_more_text = "See more posts..."
-  	show_more_url = "posts"
+#  	[entries.entries.post_list]
+#  	section = "es"
+#  	show_more = true
+#  	show_more_text = "See more posts..."
+#  	show_more_url = "posts"

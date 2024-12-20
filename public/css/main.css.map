@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "main.css",
-	"sourceRoot": "/home/nemoo1/Documents/github/projects/myWeb",
+	"sourceRoot": "/home/capinemoo/repos/active/myWeb",
 	"sources": [
 		"assets/css/main.scss"
 	],
