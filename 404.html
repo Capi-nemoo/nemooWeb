@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found :: Pingüinito Loco's Terminal</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/themes.css">
+    <style>
+        .error-art {
+            font-family: monospace;
+            font-size: 10px;
+            line-height: 1.2;
+            text-align: center;
+            margin: 30px 0;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        
+        .glitch {
+            animation: glitch 1s infinite;
+        }
+        
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        .error-code {
+            font-size: 72px;
+            font-weight: bold;
+            text-shadow: 0 0 20px currentColor;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body class="theme-green">
+    <div class="crt-overlay"></div>
+    
+    <div class="container">
+        
+        <header class="site-header">
+            <h1 class="site-title glitch">ERROR 404</h1>
+            <p class="site-subtitle">~ Page Not Found ~</p>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/index.html">HOME</a></li>
+                    <li><a href="/blog/index.html">BLOG</a></li>
+                    <li><a href="/manifestos/index.html">MANIFESTOS</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="content-section text-center">
+            <div class="error-code glitch">404</div>
+            <h2 class="section-title">Page Not Found</h2>
+            <p>
+                The page you are looking for has vanished into the digital void. Perhaps it never existed. 
+                Perhaps it was deleted in the great server crash of '99. Perhaps you mistyped the URL.
+            </p>
+            <p>
+                Or perhaps... you have discovered a secret path to nowhere.
+            </p>
+        </section>
+        
+        <section class="content-section">
+            <div class="error-art">
+    _______________
+   /               \
+  /  X         X   \
+ |                  |
+ |    \       /     |
+ |     \_____/      |
+  \                /
+   \______________/
+   
+   BROKEN LINK
+   DETECTED
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">What Happened?</h2>
+            <p>
+                In the old internet, broken links were a fact of life. Websites disappeared. Servers went 
+                offline. GeoCities accounts were deleted. The web was fragile, ephemeral, constantly changing.
+            </p>
+            <p>
+                This 404 page is a reminder of that fragility. But it's also a reminder that the web is 
+                resilient. When one page disappears, we create another. When one site goes down, we build 
+                a new one. The web persists because we persist.
+            </p>
+        </section>
+        
+        <section class="content-section">
+            <h2 class="section-title">Where to Go From Here</h2>
+            <ul>
+                <li><a href="/index.html">Return to the Home Page</a></li>
+                <li><a href="/blog/index.html">Read the Blog</a></li>
+                <li><a href="/manifestos/index.html">Explore the Manifestos</a></li>
+                <li><a href="/toys/terminal.html">Try the Terminal</a></li>
+                <li><a href="/guestbook/index.html">Sign the Guestbook</a></li>
+            </ul>
+        </section>
+        
+        <section class="content-section text-center">
+            <p>
+                <em>"Not all who wander are lost, but this page definitely is."</em>
+            </p>
+            <p class="mt-2">
+                <a href="/index.html" class="btn">GO HOME</a>
+            </p>
+        </section>
+        
+        <footer class="site-footer">
+            <p>&copy; 1999-2025 Pingüinito Loco</p>
+            <p style="font-size: 10px;">
+                Error Code: 404 • Status: Not Found • Mood: Confused
+            </p>
+        </footer>
+        
+    </div>
+    
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Extra glitch effect for 404 page
+        setInterval(() => {
+            if (Math.random() > 0.9) {
+                document.body.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
+                setTimeout(() => {
+                    document.body.style.transform = 'translate(0, 0)';
+                }, 100);
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

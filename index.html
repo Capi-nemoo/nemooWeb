@@ -3,71 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renato Ramirez ~ iusenixbtw</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Pingüinito Loco's Homepage - A personal space on the tildeverse">
+    <meta name="keywords" content="tilde, pubnix, personal website, small web">
+    <title>~pinguinito</title>
+    <link rel="stylesheet" href="/assets/css/tilde-style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <pre class="ascii-art">
-  ____            _                                            
- / ___|__ _ _ __ (_)  _ __   ___ _ __ ___   ___   ___  
-| |   / _` | '_ \| | | '_ \ / _ \ '_ ` _ \ / _ \ / _ \ 
-| |__| (_| | |_) | | | | | |  __/ | | | | | (_) | (_) |
- \____\__,_| .__/|_| |_| |_|\___|_| |_| |_|\___/ \___/ 
-           |_|                                          
-            </pre>
-            <h1>Renato Ramirez</h1>
-            <p class="subtitle">Software Developer • Linux Enthusiast • System Optimizer</p>
-        </header>
-
-        <main>
-            <section class="about">
-                <h2>$ whoami</h2>
-                <p>I'm experienced in software development, specializing in C++ and Linux environments. 
-                I have a strong focus on servers, system optimization, and custom solutions with tools 
-                like Bash, Vim, and Lua.</p>
-                <p class="tagline">I use *nix btw.</p>
-            </section>
-
-            <section class="skills">
-                <h2>$ cat skills.txt</h2>
-                <ul>
-                    <li><strong>Languages:</strong> C++, Bash, Lua</li>
-                    <li><strong>Systems:</strong> Linux, Server Administration</li>
-                    <li><strong>Tools:</strong> Vim, Git, CLI utilities</li>
-                    <li><strong>Focus:</strong> System optimization, Custom solutions, Performance</li>
-                </ul>
-            </section>
-
-            <section class="projects">
-                <h2>$ ls -la projects/</h2>
-                <div class="project-list">
-                    <p class="placeholder">[Your projects will appear here]</p>
-                    <!-- Add your projects here -->
-                </div>
-            </section>
-
-            <section class="contact">
-                <h2>$ echo $CONTACT</h2>
-                <ul class="links">
-                    <li><a href="mailto:your@email.com">[email]</a></li>
-                    <li><a href="https://github.com/yourusername" target="_blank">[github]</a></li>
-                    <li><a href="https://linkedin.com/in/yourprofile" target="_blank">[linkedin]</a></li>
-                    <!-- Add more links as needed -->
-                </ul>
-            </section>
-        </main>
-
-        <footer>
-            <p>Last updated: <span id="last-modified"></span></p>
-            <p class="footer-note">Built with plain HTML/CSS • No frameworks • No JavaScript (except this timestamp) • No bloat</p>
-        </footer>
+    <!-- i3bar -->
+    <div class="i3bar">
+        <div class="i3bar-left">
+            <span class="i3-workspace active">home</span>
+            <span class="i3-workspace">blog</span>
+            <span class="i3-workspace">projects</span>
+        </div>
+        <div class="i3bar-right">
+            <span class="i3-module">🟢 online</span>
+            <span class="i3-module">📞 407-529-4095</span>
+            <span class="i3-module" id="dc-time">📅 loading...</span>
+        </div>
     </div>
-
+    
+    <!-- Animated dots background -->
+    <canvas id="dots-bg"></canvas>
+    
+    <div class="tilde-container">
+        <!-- Left Sidebar - Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/assets/images/dprofamilyt.gif" alt="Logo" class="logo-img">
+            </div>
+            
+            <p class="tagline">a computer meant for sharing</p>
+            
+            <nav class="nav-links">
+                <a href="/index.html">home</a>
+                <a href="/pages/blog/index.html">blog</a>
+                <a href="/pages/manifestos/index.html">manifestos</a>
+                <a href="/pages/projects/index.html">projects</a>
+                <a href="/pages/guestbook/index.html">guestbook</a>
+            </nav>
+            
+            <div class="projects-section">
+                <button class="projects-toggle" onclick="toggleProjects()">
+                    projects <span class="arrow">▶</span>
+                </button>
+                <ul class="projects-list">
+                    <li><a href="/pages/projects/linux-id.html">linux ID</a></li>
+                    <li><a href="/pages/projects/job-tracker.html">job-tracker</a></li>
+                    <li><a href="/pages/projects/notifier.html">notifier</a></li>
+                    <li><a href="/pages/projects/dotfiles.html">dotfiles</a></li>
+                </ul>
+                
+                <button class="yo-toggle" onclick="toggleYo()">
+                    yo <span class="arrow">▶</span>
+                </button>
+                <ul class="yo-list">
+                    <li><a href="/pages/yo/dibujos.html">dibujos</a></li>
+                    <li><a href="/pages/yo/mas-de-mi.html">más de mi (more pics)</a></li>
+                    <li><a href="/pages/yo/resume.html">mi resume</a></li>
+                </ul>
+            </div>
+            
+            <div class="misc-section">
+                <button class="misc-toggle" onclick="toggleMisc()">
+                    misc <span class="arrow">▶</span>
+                </button>
+                <ul class="misc-list">
+                    <li><a href="/pages/misc/playlist.html">playlist</a></li>
+                    <li><a href="/pages/misc/setup.html">setup</a></li>
+                    <li><a href="/pages/misc/bookshelf.html">bookshelf</a></li>
+                    <li><a href="/pages/misc/now.html">now</a></li>
+                </ul>
+            </div>
+            
+            <div class="kindred-sites">
+                <button class="kindred-toggle" onclick="toggleKindred()">
+                    kindred sites <span class="arrow">▶</span>
+                </button>
+                <ul class="kindred-list">
+                    <li><a href="https://neocities.org/" target="_blank">neocities</a></li>
+                    <li><a href="https://yesterweb.org/" target="_blank">yesterweb</a></li>
+                    <li><a href="https://theoldnet.com/" target="_blank">the old net</a></li>
+                    <li><a href="https://tildeverse.org/" target="_blank">tildeverse</a></li>
+                    <li><a href="https://sadgrl.online/" target="_blank">sadgrl.online</a></li>
+                    <li><a href="https://spacehey.com/" target="_blank">spacehey</a></li>
+                    <li><a href="https://wiby.me/" target="_blank">wiby.me</a></li>
+                    <li><a href="https://gifcities.org/" target="_blank">gifcities</a></li>
+                    <li><a href="https://textfiles.com/" target="_blank">textfiles</a></li>
+                    <li><a href="https://windows93.net/" target="_blank">windows93</a></li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <p>if you think you might enjoy being a part of this community you can <a href="/pages/guestbook/index.html">sign the guestbook</a>.</p>
+            </div>
+            
+            <div class="host-key">
+                <code>est. 1999 ~ linux powered</code>
+            </div>
+            
+            <div class="sidebar-gifs">
+                <img src="/publicdomain.gif" alt="Public Domain">
+                <img src="/donate.gif" alt="Donate">
+                <img src="/no-to-weeb3.gif" alt="No Web3">
+                <img src="/nocookie.gif" alt="No Cookies">
+                <img src="/fspeech.gif" alt="Free Speech">
+                <img src="/armedlinux.gif" alt="Armed Linux">
+            </div>
+        </aside>
+        
+        <!-- Right Side - Main Content with Image -->
+        <main class="main-content">
+            <div class="content-row">
+                <div class="welcome-text">
+                    <h1>a spark of infinity</h1>
+                    <p>I never really understood why all the boys in my class played war games or pretended to be robots. What I did understand, though, was paper. I loved drawing and folding origami—there was something magical about transforming a simple sheet into something new, something you could measure, appreciate, and admire. It was complex, it was interesting, and it made me feel like the world had a hidden order waiting to be uncovered.</p>
+                    <p>Math was always fun for me, and my architecture class was the best of all. When I was 15, I got my first computer, and I immediately fell in love with the internet. Just a few days later, I found myself wandering through Tor and darknet forums, fascinated by this endless universe I had just discovered. Around that time, I encountered Raptor and Linux—two pieces of software that shaped me in ways I didn't yet understand.</p>
+                    <p>I played with Raptor so much that the highest thrill came from making it crash. And in Linux, I found something entirely different: a family, a home, a feeling so deep that even now I believe it's one of the best things that ever happened to me. I don't even know what to say about Linux… except thank you. Thank you to this wonderful kernel that kept me alive through the hardest moments of my life, and that still remains the most important part of who I am.</p>
+                    <p>This little corner, this little website, is my way of showing the world a small spark of the infinity I carry inside. Feel free to click around and explore what's here.</p>
+                    
+                    <div class="quick-links">
+                        <a href="/pages/manifestos/index.html">read manifestos</a>
+                        <a href="/pages/projects/index.html">explore projects</a>
+                        <a href="/pages/guestbook/index.html">sign guestbook</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="/assets/images/yo.jpg" alt="Hero image" class="placeholder-img">
+                    
+                    <div class="badges-gifs">
+                        <img src="/gotlinux.gif" alt="Got Linux">
+                        <img src="/freesoftware.gif" alt="Free Software">
+                        <img src="/tor.gif" alt="Tor">
+                        <img src="/no-microsoft.gif" alt="No Microsoft">
+                        <img src="/stopwindows.gif" alt="Stop Windows">
+                        <img src="/win10no.gif" alt="Win10 No">
+                        <img src="/web3.gif" alt="Web3">
+                        <img src="/loveislove.gif" alt="Love is Love">
+                        <img src="/wikipedia.gif" alt="Wikipedia">
+                        <img src="/nextcloud.gif" alt="Nextcloud">
+                        <img src="/linuxtyping.gif" alt="Linux Typing">
+                        <img src="/question-coments-email.gif" alt="Email">
+                        <img src="/recommend.gif" alt="Recommend">
+                        <img src="/sucks.gif" alt="Sucks">
+                        <img src="/100hot2.gif" alt="100 Hot">
+                        <img src="/fedora2.gif" alt="Fedora">
+                        <img src="/openlinux.gif" alt="Open Linux">
+                        <img src="/completlyfreesoftware.gif" alt="Free Software">
+                        <img src="/gaywebring.gif" alt="Gay Webring">
+                        <img src="/freeware.gif" alt="Freeware">
+                        <img src="/chromshit.gif" alt="Chrome">
+                        <img src="/h-free-anim.gif" alt="Hassle Free">
+                        <img src="/asus.gif" alt="Asus">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/assets/js/dots-bg.js"></script>
     <script>
-        // Simple last modified date
-        document.getElementById('last-modified').textContent = new Date().toISOString().split('T')[0];
+        function toggleProjects() {
+            const toggle = document.querySelector('.projects-toggle');
+            const list = document.querySelector('.projects-list');
+            toggle.classList.toggle('open');
+            list.classList.toggle('open');
+        }
+        
+        function toggleKindred() {
+            const toggle = document.querySelector('.kindred-toggle');
+            const list = document.querySelector('.kindred-list');
+            toggle.classList.toggle('open');
+            list.classList.toggle('open');
+        }
+        
+        function toggleYo() {
+            const toggle = document.querySelector('.yo-toggle');
+            const list = document.querySelector('.yo-list');
+            toggle.classList.toggle('open');
+            list.classList.toggle('open');
+        }
+        
+        function toggleMisc() {
+            const toggle = document.querySelector('.misc-toggle');
+            const list = document.querySelector('.misc-list');
+            toggle.classList.toggle('open');
+            list.classList.toggle('open');
+        }
+        
+        // Update DC time
+        function updateDCTime() {
+            const now = new Date();
+            const dcTime = now.toLocaleString('en-US', {
+                timeZone: 'America/New_York',
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('dc-time').textContent = '📅 ' + dcTime;
+        }
+        updateDCTime();
+        setInterval(updateDCTime, 60000);
     </script>
 </body>
 </html>

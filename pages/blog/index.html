@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog :: ~pinguinito</title>
+    <link rel="stylesheet" href="/assets/css/tilde-style.css">
+</head>
+<body>
+    <!-- i3bar -->
+    <div class="i3bar">
+        <div class="i3bar-left">
+            <a href="/index.html" class="i3-workspace">home</a>
+            <span class="i3-workspace active">blog</span>
+            <a href="/pages/projects/index.html" class="i3-workspace">projects</a>
+        </div>
+        <div class="i3bar-right">
+            <span class="i3-module">🟢 online</span>
+            <span class="i3-module">📞 407-529-4095</span>
+            <span class="i3-module" id="dc-time">📅 loading...</span>
+        </div>
+    </div>
+    
+    <!-- Animated dots background -->
+    <canvas id="dots-bg"></canvas>
+    
+    <!-- Top Corner Images -->
+    <div class="corner-images">
+        <img src="/assets/images/dprofamilyt.gif" alt="Logo" class="corner-img left">
+        <img src="/assets/images/powerlines1.gif" alt="Powerlines" class="center-img">
+        <img src="/assets/images/dprofamilyt.gif" alt="Logo" class="corner-img right">
+    </div>
+    
+    <div class="blog-layout">
+        <!-- Left Decorative Sidebar -->
+        <aside class="deco-sidebar left">
+            <pre class="deco-art">
+│
+│
+├──
+│
+│
+├──
+│
+│
+├──
+│
+│
+├──
+│
+│
+├──
+│
+│
+├──
+│
+│
+            </pre>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="blog-main">
+            <div class="blog-container">
+                <pre class="ascii-header">
+╔══════════════════════════════════════════╗
+║            ESSAYS & WRITINGS             ║
+║      from the digital frontier           ║
+╚══════════════════════════════════════════╝
+                </pre>
+                <p class="page-intro">These are essays, not blog posts. They explore ideas about technology, culture, and the digital world. They are written slowly, edited carefully, and published when they are ready—not on a schedule.</p>
+                
+                <div class="blog-posts">
+                    <article class="blog-post">
+                        <button class="post-toggle" onclick="togglePost(this)">
+                            <span class="post-icon">[+]</span> The Death of the Small Web and Its Resurrection
+                            <span class="post-date">Jan 15, 2025</span>
+                        </button>
+                        <div class="post-content">
+                            <p>The small web didn't die—it was murdered. By platforms, by algorithms, by the relentless march of corporate consolidation. But death is not always permanent.</p>
+                            <p>Remember when the internet felt infinite? When every click could lead you somewhere unexpected, somewhere personal, somewhere <em>weird</em>? That internet still exists, but you have to know where to look.</p>
+                            <p>The platforms want you to believe that the web IS Facebook, IS Twitter, IS TikTok. But underneath all that noise, the small web is still breathing. Neocities, tilde servers, personal blogs on obscure domains—they're all still there, waiting to be discovered.</p>
+                            <p>The resurrection is already happening. You just have to be part of it.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post">
+                        <button class="post-toggle" onclick="togglePost(this)">
+                            <span class="post-icon">[+]</span> Why Linux Culture Still Matters in 2025
+                            <span class="post-date">Jan 8, 2025</span>
+                        </button>
+                        <div class="post-content">
+                            <p>Linux is more than an operating system. It's a culture, a philosophy, a way of thinking about technology and freedom.</p>
+                            <p>In 2025, when most computing happens in corporate clouds, when your phone is locked down tighter than a prison, when you need permission to install software on devices you "own"—the Linux ethos is more important than ever.</p>
+                            <p>It's not about the kernel. It's about the idea that you should be able to understand, modify, and share the tools you use. It's about community over corporation. It's about building things together.</p>
+                            <p>Every time you boot into Linux, you're making a statement: technology should serve people, not the other way around.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post">
+                        <button class="post-toggle" onclick="togglePost(this)">
+                            <span class="post-icon">[+]</span> The Function and Aesthetics of Old Websites
+                            <span class="post-date">Dec 28, 2024</span>
+                        </button>
+                        <div class="post-content">
+                            <p>Old websites were "ugly" by modern standards. They had clashing colors, animated GIFs, and Comic Sans. But they had something modern websites lack: personality.</p>
+                            <p>Every GeoCities page was a window into someone's soul. The "under construction" GIFs, the guestbooks, the webrings—they weren't just design choices, they were expressions of humanity.</p>
+                            <p>Modern web design is "clean" and "professional" but also sterile and forgettable. Every site looks the same. Every experience is optimized for conversion, not connection.</p>
+                            <p>Maybe ugly was beautiful all along.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post">
+                        <button class="post-toggle" onclick="togglePost(this)">
+                            <span class="post-icon">[+]</span> How to Build Without Permission
+                            <span class="post-date">Dec 20, 2024</span>
+                        </button>
+                        <div class="post-content">
+                            <p>The best things on the internet were built without asking for permission. No business plan, no market research, no approval from gatekeepers.</p>
+                            <p>Wikipedia? Started by a guy in his apartment. Linux? A student's hobby project. The World Wide Web itself? A side project at a physics lab.</p>
+                            <p>Stop waiting for permission. Stop asking if your idea is "viable." Stop worrying about scale. Just build the thing you want to exist.</p>
+                            <p>The internet doesn't need another startup. It needs more people making weird, personal, wonderful things just because they can.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-post">
+                        <button class="post-toggle" onclick="togglePost(this)">
+                            <span class="post-icon">[+]</span> The Romance of the Terminal
+                            <span class="post-date">Dec 10, 2024</span>
+                        </button>
+                        <div class="post-content">
+                            <p>There is something romantic about the command line. The blinking cursor. The green text on black background. The feeling of direct communication with the machine.</p>
+                            <p>No icons. No buttons. No distractions. Just you and the computer, speaking in a language older than most programmers alive today.</p>
+                            <p>The terminal doesn't try to be friendly. It doesn't hold your hand. It respects you enough to assume you know what you're doing—or that you'll learn.</p>
+                            <p>In a world of touch screens and voice assistants, the terminal is a love letter to a different kind of computing. One where the human is in control.</p>
+                        </div>
+                    </article>
+                </div>
+                
+                <pre class="ascii-footer">
+════════════════════════════════════════════
+          [ END OF TRANSMISSION ]
+════════════════════════════════════════════
+                </pre>
+                
+                <!-- Badges -->
+                <div class="blog-badges">
+                    <img src="/gotlinux.gif" alt="Got Linux">
+                    <img src="/freesoftware.gif" alt="Free Software">
+                    <img src="/tor.gif" alt="Tor">
+                    <img src="/publicdomain.gif" alt="Public Domain">
+                    <img src="/nocookie.gif" alt="No Cookies">
+                    <img src="/fspeech.gif" alt="Free Speech">
+                    <img src="/armedlinux.gif" alt="Armed Linux">
+                    <img src="/loveislove.gif" alt="Love is Love">
+                </div>
+            </div>
+        </main>
+        
+        <!-- Right Decorative Sidebar -->
+        <aside class="deco-sidebar right">
+            <pre class="deco-art">
+│
+│
+──┤
+│
+│
+──┤
+│
+│
+──┤
+│
+│
+──┤
+│
+│
+──┤
+│
+│
+──┤
+│
+│
+            </pre>
+        </aside>
+    </div>
+    
+    <script src="/assets/js/dots-bg.js"></script>
+    <script>
+        // Update DC time
+        function updateDCTime() {
+            const now = new Date();
+            const dcTime = now.toLocaleString('en-US', {
+                timeZone: 'America/New_York',
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('dc-time').textContent = '📅 ' + dcTime;
+        }
+        updateDCTime();
+        setInterval(updateDCTime, 60000);
+        
+        // Toggle blog post
+        function togglePost(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('.post-icon');
+            content.classList.toggle('open');
+            icon.textContent = content.classList.contains('open') ? '[-]' : '[+]';
+        }
+    </script>
+</body>
+</html>
