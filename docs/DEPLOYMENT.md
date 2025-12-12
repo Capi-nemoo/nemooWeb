@@ -66,10 +66,7 @@ The custom domain `www.iusenixbtw.com` is configured via the `CNAME` file in the
 To test the site locally before deploying:
 
 ```bash
-# Navigate to the project directory
-cd nemooWeb
-
-# Start a local web server
+# Start a local web server from the project root
 python3 -m http.server 8000
 
 # Open in browser
@@ -93,9 +90,15 @@ python3 -m http.server 8000
 
 ### Assets Not Loading
 
-- Ensure all paths in HTML files start with `/` for absolute paths
-- Or use relative paths like `./assets/...`
-- Check that the assets directory structure is maintained
+This site uses absolute paths (starting with `/`) which work correctly with the custom domain `www.iusenixbtw.com`. All asset references should follow this pattern:
+- `/assets/css/style.css` ✓ Correct
+- `assets/css/style.css` ✗ Avoid (may fail in subdirectories)
+- `./assets/css/style.css` ✗ Avoid (inconsistent behavior)
+
+If assets fail to load:
+- Verify the assets directory structure is maintained
+- Check that file names match exactly (case-sensitive)
+- Ensure the custom domain DNS is properly configured
 
 ## Manual Deployment
 
