@@ -1,0 +1,119 @@
+# Deployment Guide for nemooWeb
+
+This website is deployed using GitHub Pages with automated GitHub Actions.
+
+## Prerequisites
+
+- GitHub repository with Pages enabled
+- Write access to the repository
+
+## GitHub Pages Setup
+
+### 1. Enable GitHub Pages
+
+1. Go to your repository settings
+2. Navigate to **Pages** section (under "Code and automation")
+3. Under **Build and deployment**:
+   - Source: Select **GitHub Actions**
+   - This allows the workflow to deploy automatically
+
+### 2. GitHub Actions Workflow
+
+The website uses the `.github/workflows/static.yml` workflow which:
+- Triggers automatically on pushes to the `main` branch
+- Can be manually triggered from the Actions tab
+- Deploys the entire repository as static content to GitHub Pages
+
+### 3. Deploying Updates
+
+Simply push changes to the `main` branch:
+
+```bash
+git add .
+git commit -m "Update website"
+git push origin main
+```
+
+The GitHub Actions workflow will automatically:
+1. Check out the code
+2. Set up GitHub Pages
+3. Upload the site content
+4. Deploy to GitHub Pages
+
+### 4. Accessing Your Site
+
+After deployment, your site will be available at the custom domain:
+```
+https://www.iusenixbtw.com/
+```
+
+The repository includes a `CNAME` file that tells GitHub Pages to use this custom domain.
+
+#### Custom Domain Setup
+
+The custom domain `www.iusenixbtw.com` is configured via the `CNAME` file in the repository root. To use this domain:
+
+1. The DNS records for `iusenixbtw.com` must point to GitHub Pages:
+   - For `www.iusenixbtw.com`: CNAME record pointing to `capi-nemoo.github.io`
+   - Optionally, apex domain `iusenixbtw.com`: A records pointing to GitHub Pages IPs
+
+2. In GitHub repository settings > Pages:
+   - Custom domain should be set to `www.iusenixbtw.com`
+   - "Enforce HTTPS" should be enabled once DNS is configured
+
+## Local Development
+
+To test the site locally before deploying:
+
+```bash
+# Start a local web server from the project root
+python3 -m http.server 8000
+
+# Open in browser
+# http://localhost:8000
+```
+
+## Troubleshooting
+
+### Deployment Failed
+
+1. Check the Actions tab in your GitHub repository
+2. Review the workflow run logs for errors
+3. Ensure GitHub Pages is enabled in repository settings
+4. Verify the workflow has proper permissions
+
+### 404 Errors
+
+- Make sure `index.html` exists in the root directory
+- Check that all asset paths are correct (use relative or absolute paths)
+- Verify the 404.html file exists for custom error pages
+
+### Assets Not Loading
+
+This site uses absolute paths (starting with `/`) which work correctly with the custom domain `www.iusenixbtw.com`. All asset references should follow this pattern:
+- `/assets/css/style.css` ✓ Correct
+- `assets/css/style.css` ✗ Avoid (may fail in subdirectories)
+- `./assets/css/style.css` ✗ Avoid (inconsistent behavior)
+
+If assets fail to load:
+- Verify the assets directory structure is maintained
+- Check that file names match exactly (case-sensitive)
+- Ensure the custom domain DNS is properly configured
+
+## Manual Deployment
+
+If you need to manually trigger a deployment:
+
+1. Go to the **Actions** tab in GitHub
+2. Select the "Deploy static content to Pages" workflow
+3. Click "Run workflow"
+4. Select the branch and click "Run workflow"
+
+## Workflow Permissions
+
+The workflow requires these permissions:
+- `contents: read` - to check out the code
+- `pages: write` - to deploy to GitHub Pages
+- `id-token: write` - for authentication
+
+These are already configured in the workflow file.
