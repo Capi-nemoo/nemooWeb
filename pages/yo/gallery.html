@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my pics :: ~pinguinito</title>
+    <link rel="stylesheet" href="/assets/css/tilde-style.css">
+    <style>
+        body {
+            background: #1a1a2e;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        
+        /* Gallery styles */
+        .gallery-container {
+            display: contents;
+        }
+        
+        .gallery-header {
+            text-align: center;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, rgba(26,0,17,0.95) 0%, rgba(10,10,10,0.95) 100%);
+            border: 3px ridge #ff3366;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 50;
+            max-width: 700px;
+        }
+        
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .gallery-gif {
+            max-width: 450px;
+            height: auto;
+            image-rendering: pixelated;
+            filter: drop-shadow(0 0 15px rgba(255,51,102,0.8));
+        }
+        
+        .nemoo-title {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 72px;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            text-shadow: 
+                3px 3px 0px #ff3366,
+                6px 6px 0px #ffcc00,
+                9px 9px 0px #ff6600,
+                12px 12px 20px rgba(0,0,0,0.8);
+            animation: title-glitch 2s infinite;
+        }
+        
+        @keyframes title-glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        .badges-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .badges-row img {
+            max-height: 31px;
+            image-rendering: pixelated;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .subtitle {
+            font-family: 'Courier New', monospace;
+            color: #ffcc00;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .subtitle .wink {
+            color: #ff3366;
+            font-size: 20px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0.3; }
+        }
+        
+        .gallery-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: transparent;
+            overflow: hidden;
+            z-index: 5;
+            pointer-events: none;
+        }
+        
+        .xp-window {
+            pointer-events: auto;
+        }
+        
+        .xp-window {
+            position: absolute;
+            background: #d4d0c8;
+            border: 2px outset #d4d0c8;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            cursor: move;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+        
+        .xp-window.minimized .xp-content {
+            display: none;
+        }
+        
+        .xp-window.maximized {
+            position: fixed !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            width: 80vw !important;
+            max-width: 800px !important;
+            z-index: 1000 !important;
+        }
+        
+        .xp-titlebar {
+            background: linear-gradient(to bottom, #808080 0%, #c0c0c0 15%, #c0c0c0 85%, #808080 100%);
+            padding: 2px 3px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #808080;
+        }
+        
+        .xp-title {
+            color: #000;
+            font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+            user-select: none;
+            padding-left: 2px;
+        }
+        
+        .xp-buttons {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .xp-btn {
+            width: 16px;
+            height: 14px;
+            border: 1px outset #d4d0c8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 9px;
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            background: #d4d0c8;
+        }
+        
+        .xp-btn:hover {
+            background: #e0e0e0;
+        }
+        
+        .xp-btn:active {
+            border-style: inset;
+            background: #c0c0c0;
+        }
+        
+        .xp-btn.close {
+            background: #d4d0c8;
+            color: #000;
+        }
+        
+        .xp-btn.close:hover {
+            background: #ff6666;
+            color: #fff;
+        }
+        
+        .xp-content {
+            background: #fff;
+            padding: 2px;
+            border: 2px inset #808080;
+        }
+        
+        .xp-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        .xp-window[data-aspect="16/9"] .xp-content img { aspect-ratio: 16/9; }
+        .xp-window[data-aspect="3/4"] .xp-content img { aspect-ratio: 3/4; }
+        .xp-window[data-aspect="4/3"] .xp-content img { aspect-ratio: 4/3; }
+        
+        /* Pipes background */
+        #pipes-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .xp-window:hover {
+            z-index: 100;
+            box-shadow: 4px 4px 15px rgba(0,0,0,0.7);
+        }
+        
+        .image-number {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(255,51,102,0.9);
+            color: #fff;
+            padding: 2px 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            font-weight: bold;
+            border: 1px solid #ffcc00;
+        }
+        
+        .cute-deco {
+            color: #ffcc00;
+            font-size: 18px;
+            margin-top: 15px;
+            font-family: 'Comic Sans MS', cursive;
+        }
+        
+        .heart {
+            color: #ff3366;
+            font-size: 24px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .footer-message {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            color: #ff6600;
+            font-family: 'Courier New', monospace;
+            border-top: 2px dashed #ff3366;
+        }
+        
+        .ascii-deco {
+            color: #ff3366;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            cursor: pointer;
+        }
+        
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 5px ridge #ff3366;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #ffcc00;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            text-shadow: 0 0 10px #ffcc00;
+        }
+        
+        .close-btn:hover {
+            color: #ff3366;
+        }
+        
+        /* Back button */
+        .back-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+        
+        .back-nav a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            padding: 8px 15px;
+            background: rgba(0,0,0,0.8);
+            border: 2px outset #ff3366;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        
+        .back-nav a:hover {
+            background: #ff3366;
+            color: #000;
+            border-color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back navigation -->
+    <div class="back-nav">
+        <a href="/index.html">← back home</a>
+    </div>
+    
+    <!-- Pipes background -->
+    <canvas id="pipes-canvas"></canvas>
+    
+    <!-- Main gallery -->
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <div class="badges-row">
+                <img src="/assets/badges/gotlinux.gif" alt="Linux">
+                <img src="/assets/badges/tor.gif" alt="Tor">
+                <img src="/assets/badges/fspeech.gif" alt="Free Speech">
+            </div>
+            <div class="title-container">
+                <img src="/assets/badges/the gallery of....gif" alt="Gallery" class="gallery-gif">
+                <h1 class="nemoo-title">NEMOO</h1>
+            </div>
+            <div class="badges-row">
+                <img src="/assets/badges/no-microsoft.gif" alt="No MS">
+                <img src="/assets/badges/freesoftware.gif" alt="Free Software">
+                <img src="/assets/badges/armedlinux.gif" alt="Armed Linux">
+                <img src="/assets/badges/stopwindows.gif" alt="Stop Windows">
+                <img src="/assets/badges/vegetta.gif" alt="Vegetta">
+                <img src="/assets/badges/banporn.gif" alt="Ban">
+            </div>
+            <p class="subtitle">
+                since i don't have any social media, i feel right posting all my images here on my web 
+                <span class="wink">;)</span>
+            </p>
+        </div>
+        
+    </div>
+    
+    <div class="gallery-grid" id="galleryGrid">
+        <!-- Images will be added here by JavaScript -->
+    </div>
+    
+    <!-- Lightbox for full image view -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn">&times;</span>
+        <img src="" alt="Full size image" id="lightboxImage">
+    </div>
+    
+    <script>
+        // Pipes.sh style animation
+        function initPipes() {
+            const canvas = document.getElementById('pipes-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const colors = ['#ff3366', '#ffcc00', '#ff6600', '#00ff88', '#00ccff', '#ff00ff'];
+            const pipes = [];
+            const maxPipes = 6;
+            
+            class Pipe {
+                constructor() {
+                    this.reset();
+                }
+                
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.color = colors[Math.floor(Math.random() * colors.length)];
+                    this.direction = Math.floor(Math.random() * 4); // 0=up, 1=right, 2=down, 3=left
+                    this.speed = 3;
+                    this.thickness = 3 + Math.random() * 4;
+                    this.turnChance = 0.02;
+                    this.length = 0;
+                    this.maxLength = 500 + Math.random() * 1000;
+                }
+                
+                update() {
+                    const prevX = this.x;
+                    const prevY = this.y;
+                    
+                    // Move in current direction
+                    switch(this.direction) {
+                        case 0: this.y -= this.speed; break;
+                        case 1: this.x += this.speed; break;
+                        case 2: this.y += this.speed; break;
+                        case 3: this.x -= this.speed; break;
+                    }
+                    
+                    // Draw pipe segment
+                    ctx.strokeStyle = this.color;
+                    ctx.lineWidth = this.thickness;
+                    ctx.lineCap = 'round';
+                    ctx.beginPath();
+                    ctx.moveTo(prevX, prevY);
+                    ctx.lineTo(this.x, this.y);
+                    ctx.stroke();
+                    
+                    // Random turn
+                    if (Math.random() < this.turnChance) {
+                        // Turn 90 degrees
+                        this.direction = (this.direction + (Math.random() > 0.5 ? 1 : 3)) % 4;
+                        
+                        // Draw corner
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.thickness / 2, 0, Math.PI * 2);
+                        ctx.fillStyle = this.color;
+                        ctx.fill();
+                    }
+                    
+                    this.length += this.speed;
+                    
+                    // Reset if out of bounds or max length
+                    if (this.x < -50 || this.x > canvas.width + 50 || 
+                        this.y < -50 || this.y > canvas.height + 50 ||
+                        this.length > this.maxLength) {
+                        this.reset();
+                    }
+                }
+            }
+            
+            // Create initial pipes
+            for (let i = 0; i < maxPipes; i++) {
+                pipes.push(new Pipe());
+            }
+            
+            // Animation loop
+            function animate() {
+                // Fade effect
+                ctx.fillStyle = 'rgba(26, 26, 46, 0.03)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                pipes.forEach(pipe => pipe.update());
+                requestAnimationFrame(animate);
+            }
+            
+            // Clear and start
+            ctx.fillStyle = '#1a1a2e';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            animate();
+            
+            // Handle resize
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+        
+        // Create gallery with XP windows
+        function createGallery() {
+            const grid = document.getElementById('galleryGrid');
+            const totalImages = 27;
+            const vw = window.innerWidth;
+            const vh = window.innerHeight;
+            
+            // Define positions around the screen edges and corners
+            const positions = [
+                // Left side
+                { x: 20, y: 50 }, { x: 40, y: 200 }, { x: 30, y: 350 }, { x: 50, y: 500 }, { x: 25, y: 650 },
+                // Right side
+                { x: vw - 220, y: 80 }, { x: vw - 240, y: 230 }, { x: vw - 200, y: 380 }, { x: vw - 230, y: 530 }, { x: vw - 210, y: 680 },
+                // Top
+                { x: 250, y: 30 }, { x: 450, y: 50 }, { x: 650, y: 40 }, { x: 850, y: 60 },
+                // Bottom
+                { x: 200, y: vh - 200 }, { x: 400, y: vh - 180 }, { x: 600, y: vh - 190 }, { x: 800, y: vh - 170 },
+                // Corners and scattered
+                { x: 150, y: 120 }, { x: vw - 350, y: 120 }, { x: 180, y: vh - 280 }, { x: vw - 380, y: vh - 280 },
+                // More overlap around center area edges
+                { x: 280, y: 180 }, { x: vw - 420, y: 200 }, { x: 320, y: vh - 320 }, { x: vw - 450, y: vh - 300 },
+                { x: 100, y: 280 }, { x: vw - 280, y: 300 }
+            ];
+            
+            for (let i = 1; i <= totalImages; i++) {
+                const win = document.createElement('div');
+                win.className = 'xp-window';
+                
+                // Base size increased by 10px (130-220px)
+                let randomWidth = 130 + Math.random() * 90;
+                let aspectRatio = '4/3';
+                
+                // Make 5 images wider
+                if (i <= 5) {
+                    randomWidth = 200 + Math.random() * 60;
+                    aspectRatio = '16/9';
+                }
+                // Make 5 images taller
+                else if (i > 5 && i <= 10) {
+                    randomWidth = 140 + Math.random() * 40;
+                    aspectRatio = '3/4';
+                }
+                // Make 5 images bigger overall
+                else if (i > 10 && i <= 15) {
+                    randomWidth = 220 + Math.random() * 50;
+                }
+                
+                win.style.width = randomWidth + 'px';
+                win.dataset.aspect = aspectRatio;
+                
+                // Use predefined positions with randomness
+                const pos = positions[(i - 1) % positions.length];
+                const randomX = pos.x + (Math.random() - 0.5) * 60;
+                const randomY = pos.y + (Math.random() - 0.5) * 40;
+                win.style.left = Math.max(10, Math.min(randomX, vw - 150)) + 'px';
+                win.style.top = Math.max(10, Math.min(randomY, vh - 150)) + 'px';
+                
+                // Random rotation
+                const rotation = (Math.random() - 0.5) * 12;
+                win.style.transform = `rotate(${rotation}deg)`;
+                
+                // Random z-index for overlap effect (higher for edges)
+                win.style.zIndex = Math.floor(Math.random() * 40);
+                
+                // Create title bar
+                const titlebar = document.createElement('div');
+                titlebar.className = 'xp-titlebar';
+                
+                const title = document.createElement('span');
+                title.className = 'xp-title';
+                title.textContent = `photo_${i}.jpg`;
+                
+                const buttons = document.createElement('div');
+                buttons.className = 'xp-buttons';
+                
+                // Minimize button
+                const minBtn = document.createElement('div');
+                minBtn.className = 'xp-btn';
+                minBtn.innerHTML = '_';
+                minBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    win.classList.toggle('minimized');
+                };
+                
+                // Maximize button
+                const maxBtn = document.createElement('div');
+                maxBtn.className = 'xp-btn';
+                maxBtn.innerHTML = '□';
+                maxBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    win.classList.toggle('maximized');
+                };
+                
+                // Close button
+                const closeBtn = document.createElement('div');
+                closeBtn.className = 'xp-btn close';
+                closeBtn.innerHTML = 'X';
+                closeBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    win.style.transition = 'opacity 0.3s, transform 0.3s';
+                    win.style.opacity = '0';
+                    win.style.transform = 'scale(0.8)';
+                    setTimeout(() => win.remove(), 300);
+                };
+                
+                buttons.appendChild(minBtn);
+                buttons.appendChild(maxBtn);
+                buttons.appendChild(closeBtn);
+                titlebar.appendChild(title);
+                titlebar.appendChild(buttons);
+                
+                // Create content area
+                const content = document.createElement('div');
+                content.className = 'xp-content';
+                content.onclick = () => openLightbox(i);
+                
+                const img = document.createElement('img');
+                img.src = `/myimages/${i}.jpg`;
+                img.alt = `Photo ${i}`;
+                img.loading = 'lazy';
+                
+                content.appendChild(img);
+                win.appendChild(titlebar);
+                win.appendChild(content);
+                grid.appendChild(win);
+            }
+        }
+        
+        // Lightbox functionality
+        function openLightbox(imageNum) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImage');
+            lightboxImg.src = `/myimages/${imageNum}.jpg`;
+            lightbox.classList.add('active');
+        }
+        
+        // Close lightbox
+        document.getElementById('lightbox').onclick = function() {
+            this.classList.remove('active');
+        };
+        
+        // Initialize
+        initPipes();
+        createGallery();
+    </script>
+</body>
+</html>
