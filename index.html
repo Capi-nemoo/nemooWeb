@@ -103,12 +103,12 @@
             </div>
             
             <div class="sidebar-gifs">
-                <img src="/publicdomain.gif" alt="Public Domain">
-                <img src="/donate.gif" alt="Donate">
-                <img src="/no-to-weeb3.gif" alt="No Web3">
-                <img src="/nocookie.gif" alt="No Cookies">
-                <img src="/fspeech.gif" alt="Free Speech">
-                <img src="/armedlinux.gif" alt="Armed Linux">
+                <img src="/assets/badges/publicdomain.gif" alt="Public Domain">
+                <img src="/assets/badges/donate.gif" alt="Donate">
+                <img src="/assets/badges/no-to-weeb3.gif" alt="No Web3">
+                <img src="/assets/badges/nocookie.gif" alt="No Cookies">
+                <img src="/assets/badges/fspeech.gif" alt="Free Speech">
+                <img src="/assets/badges/armedlinux.gif" alt="Armed Linux">
             </div>
         </aside>
         
@@ -127,35 +127,53 @@
                         <a href="/pages/projects/index.html">explore projects</a>
                         <a href="/pages/guestbook/index.html">sign guestbook</a>
                     </div>
+                    
                 </div>
                 
                 <div class="hero-image">
                     <img src="/assets/images/yo.jpg" alt="Hero image" class="placeholder-img">
                     
                     <div class="badges-gifs">
-                        <img src="/gotlinux.gif" alt="Got Linux">
-                        <img src="/freesoftware.gif" alt="Free Software">
-                        <img src="/tor.gif" alt="Tor">
-                        <img src="/no-microsoft.gif" alt="No Microsoft">
-                        <img src="/stopwindows.gif" alt="Stop Windows">
-                        <img src="/win10no.gif" alt="Win10 No">
-                        <img src="/web3.gif" alt="Web3">
-                        <img src="/loveislove.gif" alt="Love is Love">
-                        <img src="/wikipedia.gif" alt="Wikipedia">
-                        <img src="/nextcloud.gif" alt="Nextcloud">
-                        <img src="/linuxtyping.gif" alt="Linux Typing">
-                        <img src="/question-coments-email.gif" alt="Email">
-                        <img src="/recommend.gif" alt="Recommend">
-                        <img src="/sucks.gif" alt="Sucks">
-                        <img src="/100hot2.gif" alt="100 Hot">
-                        <img src="/fedora2.gif" alt="Fedora">
-                        <img src="/openlinux.gif" alt="Open Linux">
-                        <img src="/completlyfreesoftware.gif" alt="Free Software">
-                        <img src="/gaywebring.gif" alt="Gay Webring">
-                        <img src="/freeware.gif" alt="Freeware">
-                        <img src="/chromshit.gif" alt="Chrome">
-                        <img src="/h-free-anim.gif" alt="Hassle Free">
-                        <img src="/asus.gif" alt="Asus">
+                        <img src="/assets/badges/gotlinux.gif" alt="Got Linux">
+                        <img src="/assets/badges/freesoftware.gif" alt="Free Software">
+                        <img src="/assets/badges/tor.gif" alt="Tor">
+                        <img src="/assets/badges/no-microsoft.gif" alt="No Microsoft">
+                        <img src="/assets/badges/stopwindows.gif" alt="Stop Windows">
+                        <img src="/assets/badges/win10no.gif" alt="Win10 No">
+                        <img src="/assets/badges/web3.gif" alt="Web3">
+                        <img src="/assets/badges/loveislove.gif" alt="Love is Love">
+                        <img src="/assets/badges/wikipedia.gif" alt="Wikipedia">
+                        <img src="/assets/badges/nextcloud.gif" alt="Nextcloud">
+                        <img src="/assets/badges/linuxtyping.gif" alt="Linux Typing">
+                        <img src="/assets/badges/question-coments-email.gif" alt="Email">
+                        <img src="/assets/badges/recommend.gif" alt="Recommend">
+                        <img src="/assets/badges/sucks.gif" alt="Sucks">
+                        <img src="/assets/badges/100hot2.gif" alt="100 Hot">
+                        <img src="/assets/badges/fedora2.gif" alt="Fedora">
+                        <img src="/assets/badges/openlinux.gif" alt="Open Linux">
+                        <img src="/assets/badges/completlyfreesoftware.gif" alt="Free Software">
+                        <img src="/assets/badges/gaywebring.gif" alt="Gay Webring">
+                        <img src="/assets/badges/freeware.gif" alt="Freeware">
+                        <img src="/assets/badges/chromshit.gif" alt="Chrome">
+                        <img src="/assets/badges/h-free-anim.gif" alt="Hassle Free">
+                        <img src="/assets/badges/asus.gif" alt="Asus">
+                        <img src="/assets/badges/banporn.gif" alt="Ban Porn">
+                    </div>
+                    
+                    <!-- Donations -->
+                    <div class="donations-box">
+                        <div class="donations-title">
+                            ★★ <span class="blink-arrow">→</span> donations <span class="blink-arrow">←</span> ★★
+                        </div>
+                        <div class="wallet-row">
+                            <span class="wallet-label">★ monero:</span>
+                            <code class="wallet-code" onclick="copyToClipboard('433oUqFETjqEBvmGvys3CEbP1HxPjMzKM1hnCsiJ9HTd91bUXz8aUjv6entUdsmQ173DAtfG53gBqYU8ukfT1JarNsuX5w9')">433oUqFETjqEBvmGvys3CEbP1HxPjMzKM1hnCsiJ9HTd91bUXz8aUjv6entUdsmQ173DAtfG53gBqYU8ukfT1JarNsuX5w9</code>
+                        </div>
+                        <div class="wallet-row">
+                            <span class="wallet-label">★ bitcoin:</span>
+                            <code class="wallet-code" onclick="copyToClipboard('bc1q6xyfz4u9r34mgqgrdacs354p7wwjrvd9ymug9a')">bc1q6xyfz4u9r34mgqgrdacs354p7wwjrvd9ymug9a</code>
+                        </div>
+                        <p class="click-copy">(click to copy)</p>
                     </div>
                 </div>
             </div>
@@ -190,6 +208,13 @@
             const list = document.querySelector('.misc-list');
             toggle.classList.toggle('open');
             list.classList.toggle('open');
+        }
+        
+        // Copy to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Copied to clipboard!');
+            });
         }
         
         // Update DC time
