@@ -42,15 +42,24 @@ The GitHub Actions workflow will automatically:
 
 ### 4. Accessing Your Site
 
-After deployment, your site will be available at:
+After deployment, your site will be available at the custom domain:
 ```
-https://<username>.github.io/<repository-name>/
+https://www.iusenixbtw.com/
 ```
 
-For this repository:
-```
-https://capi-nemoo.github.io/nemooWeb/
-```
+The repository includes a `CNAME` file that tells GitHub Pages to use this custom domain.
+
+#### Custom Domain Setup
+
+The custom domain `www.iusenixbtw.com` is configured via the `CNAME` file in the repository root. To use this domain:
+
+1. The DNS records for `iusenixbtw.com` must point to GitHub Pages:
+   - For `www.iusenixbtw.com`: CNAME record pointing to `capi-nemoo.github.io`
+   - Optionally, apex domain `iusenixbtw.com`: A records pointing to GitHub Pages IPs
+
+2. In GitHub repository settings > Pages:
+   - Custom domain should be set to `www.iusenixbtw.com`
+   - "Enforce HTTPS" should be enabled once DNS is configured
 
 ## Local Development
 
