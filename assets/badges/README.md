@@ -1,4 +1,4 @@
-# ~pinguinito's website
+# badges
 
 hey folks, these are the badges i used:
 
