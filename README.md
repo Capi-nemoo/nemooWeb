@@ -53,7 +53,17 @@ open http://localhost:8000
 ```
 
 ### Deploy
-See `docs/INSTALL.md` for deployment instructions.
+
+This website is configured for automatic deployment to GitHub Pages.
+
+**Quick Deploy:**
+1. Ensure GitHub Pages is enabled in repository settings (Settings > Pages > Source: GitHub Actions)
+2. Push changes to the `main` branch
+3. GitHub Actions will automatically build and deploy the site
+
+**Live Site:** `https://capi-nemoo.github.io/nemooWeb/`
+
+For detailed deployment instructions, see [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
 
 ---
 
