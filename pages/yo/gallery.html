@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my pics :: ~pinguinito</title>
+    <title>my pics :: capi_nemoo</title>
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
     <link rel="stylesheet" href="/assets/css/tilde-style.css">
     <style>
         body {
@@ -352,6 +353,152 @@
             color: #000;
             border-color: #ffcc00;
         }
+        
+        /* Paywall/Challenge styles */
+        .blur-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .blur-overlay.unlocked {
+            animation: fadeAway 0.5s ease forwards;
+        }
+        
+        @keyframes fadeAway {
+            to {
+                opacity: 0;
+                pointer-events: none;
+                backdrop-filter: blur(0);
+            }
+        }
+        
+        .login-box {
+            background: #1a1a2e;
+            border: 3px ridge #ff3366;
+            padding: 30px 40px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 0 50px rgba(255,51,102,0.3);
+        }
+        
+        .login-box h2 {
+            color: #ff3366;
+            font-family: 'Courier New', monospace;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .login-box .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #0a0a0a;
+            border: 2px inset #444;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .login-box input::placeholder {
+            color: #555;
+        }
+        
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to bottom, #ff3366, #cc2952);
+            border: 2px outset #ff3366;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        
+        .login-box button:hover {
+            background: linear-gradient(to bottom, #ff4477, #dd3963);
+        }
+        
+        .login-box button:active {
+            border-style: inset;
+        }
+        
+        .hint-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px dashed #888;
+            color: #888;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .hint-btn:hover {
+            border-color: #ffcc00;
+            color: #ffcc00;
+        }
+        
+        .hint-visible {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255,204,0,0.1);
+            border: 1px dashed #ffcc00;
+            color: #ccc;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            text-align: left;
+        }
+        
+        .hint-answer {
+            margin-top: 10px;
+            padding: 15px;
+            background: rgba(0,255,0,0.1);
+            border: 1px dashed #0f0;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            text-align: center;
+            display: none;
+        }
+        
+        .hint-answer.show {
+            display: block;
+        }
+        
+        .hint-title {
+            color: #ffcc00;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .error-msg {
+            color: #ff3366;
+            font-size: 12px;
+            margin-bottom: 10px;
+            display: none;
+        }
+        
+        .error-msg.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -362,6 +509,26 @@
     
     <!-- Pipes background -->
     <canvas id="pipes-canvas"></canvas>
+    
+    <!-- SQL Injection Challenge -->
+    <div class="blur-overlay" id="paywall">
+        <div class="login-box">
+            <div class="error-msg" id="errorMsg">❌ Access Denied - Invalid credentials</div>
+            <input type="text" id="username" placeholder="Username" autocomplete="off">
+            <input type="password" id="password" placeholder="Password" autocomplete="off">
+            <button onclick="attemptLogin()">LOGIN</button>
+            <div class="hint-visible">
+                <div class="hint-title">💡 HINT:</div>
+                Think like a hacker... What if the database query looks like:<br>
+                <code style="color:#ff3366">SELECT * FROM users WHERE user='$input' AND pass='$input'</code>
+            </div>
+            <button class="hint-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.style.display='none';">idk im just a normie, uwu</button>
+            <div class="hint-answer">
+                How would you make this always return TRUE? 🤔<br>
+                <span style="color:#0f0">psst... ' OR '1'='1</span>
+            </div>
+        </div>
+    </div>
     
     <!-- Main gallery -->
     <div class="gallery-container">
@@ -641,6 +808,52 @@
         document.getElementById('lightbox').onclick = function() {
             this.classList.remove('active');
         };
+        
+        // SQL Injection Challenge
+        function attemptLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMsg');
+            
+            // Classic SQL injection patterns
+            const sqlPatterns = [
+                "' OR '1'='1",
+                "' OR 1=1--",
+                "' OR 1=1#",
+                "' OR '1'='1'--",
+                "' OR ''='",
+                "1' OR '1'='1",
+                "admin'--",
+                "' OR 'x'='x"
+            ];
+            
+            // Check if either field contains SQL injection
+            const isInjection = sqlPatterns.some(pattern => 
+                username.toLowerCase().includes(pattern.toLowerCase()) || 
+                password.toLowerCase().includes(pattern.toLowerCase())
+            );
+            
+            // Also accept exact match
+            const exactMatch = username === "' OR '1'='1" && password === "' OR '1'='1";
+            
+            if (isInjection || exactMatch) {
+                // Success! Remove the paywall
+                document.getElementById('paywall').classList.add('unlocked');
+                console.log('🎉 SQL Injection successful! Access granted.');
+            } else {
+                // Show error
+                errorMsg.classList.add('show');
+                setTimeout(() => errorMsg.classList.remove('show'), 2000);
+            }
+        }
+        
+        // Allow Enter key to submit
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') attemptLogin();
+        });
+        document.getElementById('username').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') document.getElementById('password').focus();
+        });
         
         // Initialize
         initPipes();
