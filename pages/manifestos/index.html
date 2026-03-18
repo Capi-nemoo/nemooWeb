@@ -12,13 +12,13 @@
     <div class="i3bar">
         <div class="i3bar-left">
             <a href="/index.html" class="i3-workspace">home</a>
-            <a href="/pages/blog/index.html" class="i3-workspace">blog</a>
+            <a href="/pages/blog/index.html" class="i3-workspace">essays</a>
             <span class="i3-workspace active">manifestos</span>
         </div>
         <div class="i3bar-right">
-            <span class="i3-module">🟢 online</span>
-            <span class="i3-module">📞 407-529-4095</span>
-            <span class="i3-module" id="dc-time">📅 loading...</span>
+            <span class="i3-module">reference archive</span>
+            <span class="i3-module">static html/css/js</span>
+            <span class="i3-module" data-site-clock data-label="time">time: loading...</span>
         </div>
     </div>
     
@@ -66,8 +66,8 @@
                 
                 <div class="blog-posts">
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> 1. The GNU Manifesto
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> 1. The GNU Manifesto
                             <span class="post-date">1985</span>
                         </button>
                         <div class="post-content">
@@ -80,8 +80,8 @@
                     </article>
                     
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> 2. The Hacker Manifesto
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> 2. The Hacker Manifesto
                             <span class="post-date">1986</span>
                         </button>
                         <div class="post-content">
@@ -94,8 +94,8 @@
                     </article>
                     
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> 3. A Cypherpunk's Manifesto
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> 3. A Cypherpunk's Manifesto
                             <span class="post-date">1993</span>
                         </button>
                         <div class="post-content">
@@ -109,8 +109,8 @@
                     </article>
                     
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> 4. A Declaration of the Independence of Cyberspace
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> 4. A Declaration of the Independence of Cyberspace
                             <span class="post-date">1996</span>
                         </button>
                         <div class="post-content">
@@ -123,8 +123,8 @@
                     </article>
                     
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> 5. The Cathedral and the Bazaar
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> 5. The Cathedral and the Bazaar
                             <span class="post-date">1997</span>
                         </button>
                         <div class="post-content">
@@ -137,8 +137,8 @@
                     </article>
                     
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> 6. The Right to Read
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> 6. The Right to Read
                             <span class="post-date">1997</span>
                         </button>
                         <div class="post-content">
@@ -151,8 +151,8 @@
                     </article>
                     
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> 7. Guerrilla Open Access Manifesto
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> 7. Guerrilla Open Access Manifesto
                             <span class="post-date">2008</span>
                         </button>
                         <div class="post-content">
@@ -205,30 +205,6 @@
     </div>
     
     <script src="/assets/js/dots-bg.js"></script>
-    <script>
-        // Update DC time
-        function updateDCTime() {
-            const now = new Date();
-            const dcTime = now.toLocaleString('en-US', {
-                timeZone: 'America/New_York',
-                weekday: 'short',
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            document.getElementById('dc-time').textContent = '📅 ' + dcTime;
-        }
-        updateDCTime();
-        setInterval(updateDCTime, 60000);
-        
-        // Toggle manifesto post
-        function togglePost(btn) {
-            const content = btn.nextElementSibling;
-            const icon = btn.querySelector('.post-icon');
-            content.classList.toggle('open');
-            icon.textContent = content.classList.contains('open') ? '[-]' : '[+]';
-        }
-    </script>
+    <script src="/assets/js/site.js"></script>
 </body>
 </html>

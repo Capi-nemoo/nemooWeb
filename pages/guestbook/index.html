@@ -3,104 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guestbook :: Pingüinito Loco's Terminal</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/themes.css">
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <title>guestbook :: capi_nemoo</title>
+    <link rel="stylesheet" href="/assets/css/tilde-style.css">
 </head>
-<body class="theme-green">
-    <div class="crt-overlay"></div>
-    
-    <div class="container">
-        
-        <header class="site-header">
-            <h1 class="site-title">GUESTBOOK</h1>
-            <p class="site-subtitle">~ Sign the Wall ~</p>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="/index.html">HOME</a></li>
-                    <li><a href="/pages/projects/index.html">PROJECTS</a></li>
-                    <li><a href="/pages/blog/index.html">BLOG</a></li>
-                    <li><a href="/pages/manifestos/index.html">MANIFESTOS</a></li>
-                    <li><a href="/pages/guestbook/index.html">GUESTBOOK</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <section class="content-section">
-            <h2 class="section-title">Welcome to the Guestbook</h2>
-            <p>
-                In the old internet, every personal website had a guestbook. It was a place where visitors 
-                could leave their mark, share their thoughts, and connect with the webmaster. This is that 
-                tradition, revived.
-            </p>
-            <p>
-                Sign the guestbook below. Your entry will be stored locally in your browser and displayed 
-                for you to see. In the spirit of the old web, this is a simple, honest system—no databases, 
-                no servers, just localStorage and good vibes.
-            </p>
-            <p class="text-center mt-2">
-                <strong>Total Entries: <span id="entry-count">0</span></strong>
-            </p>
-        </section>
-        
-        <section class="content-section">
-            <h2 class="section-title">Sign the Guestbook</h2>
-            <form id="guestbook-form">
-                <label for="gb-name">Name: *</label>
-                <input type="text" id="gb-name" name="name" required placeholder="Your name or handle">
-                
-                <label for="gb-email">Email: (optional)</label>
-                <input type="email" id="gb-email" name="email" placeholder="your@email.com">
-                
-                <label for="gb-website">Website: (optional)</label>
-                <input type="url" id="gb-website" name="website" placeholder="https://yoursite.com">
-                
-                <label for="gb-message">Message: *</label>
-                <textarea id="gb-message" name="message" required placeholder="Leave your thoughts..."></textarea>
-                
-                <button type="submit" class="btn">SIGN GUESTBOOK</button>
-            </form>
-        </section>
-        
-        <section class="content-section">
-            <h2 class="section-title">Recent Entries</h2>
-            <div id="guestbook-entries">
-                <!-- Entries will be dynamically inserted here -->
-            </div>
-        </section>
-        
-        <section class="content-section">
-            <h2 class="section-title">Guestbook Etiquette</h2>
-            <ul>
-                <li>Be respectful and kind</li>
-                <li>Share your thoughts about the site</li>
-                <li>Link to your own website if you have one</li>
-                <li>No spam, no hate, no trolling</li>
-                <li>Remember: this is the old internet—be human</li>
-            </ul>
-            <p class="mt-2">
-                <em>Note: Entries are stored in your browser's localStorage. They are not shared with a server 
-                or other users. This is a demo implementation—in a real guestbook, entries would be stored 
-                in a database.</em>
-            </p>
-        </section>
-        
-        <section class="content-section text-center">
-            <p>
-                <a href="/index.html" class="btn">RETURN HOME</a>
-            </p>
-        </section>
-        
-        <footer class="site-footer">
-            <p>&copy; 1999-2025 Pingüinito Loco</p>
-            <p style="font-size: 10px; margin-top: 10px;">
-                Console commands: <code>clearGuestbook()</code> • <code>resetToSamples()</code>
-            </p>
-        </footer>
-        
+<body>
+    <div class="i3bar">
+        <div class="i3bar-left">
+            <a href="/index.html" class="i3-workspace">home</a>
+            <a href="/pages/blog/index.html" class="i3-workspace">essays</a>
+            <a href="/pages/projects/index.html" class="i3-workspace">projects</a>
+        </div>
+        <div class="i3bar-right">
+            <span class="i3-module">guestbook / local only</span>
+            <span class="i3-module">static html/css/js</span>
+            <span class="i3-module" data-site-clock data-label="time">time: loading...</span>
+        </div>
     </div>
-    
-    <script src="/assets/js/main.js"></script>
+
+    <canvas id="dots-bg"></canvas>
+
+    <div class="corner-images">
+        <img src="/assets/images/dprofamilyt.gif" alt="Retro computer illustration" class="corner-img left">
+        <img src="/assets/images/powerlines1.gif" alt="Powerlines" class="center-img">
+        <img src="/assets/images/dprofamilyt.gif" alt="Retro computer illustration" class="corner-img right">
+    </div>
+
+    <div class="blog-layout">
+        <aside class="deco-sidebar left">
+            <pre class="deco-art">
+:
+:
+:-:
+:
+:
+:-:
+:
+:
+            </pre>
+        </aside>
+
+        <main class="blog-main">
+            <div class="blog-container page-shell">
+                <pre class="ascii-header">
++------------------------------------------+
+|              G U E S T B O O K           |
+|          leave a note on the wall        |
++------------------------------------------+
+                </pre>
+
+                <p class="page-intro">A guestbook still makes sense on a personal site. This one is intentionally local-only, so entries are stored in your browser and nowhere else.</p>
+
+                <section class="page-section">
+                    <div class="meta-line">entries in this browser: <span id="entry-count">0</span></div>
+                    <h2 class="page-title">sign the wall</h2>
+                    <form id="guestbook-form" class="guestbook-form">
+                        <label>
+                            name *
+                            <input type="text" name="name" required placeholder="your name or handle">
+                        </label>
+
+                        <label>
+                            website
+                            <input type="url" name="website" placeholder="https://your-site.example">
+                        </label>
+
+                        <label>
+                            message *
+                            <textarea name="message" required placeholder="Leave a note, a thought, or a link back to your own site."></textarea>
+                        </label>
+
+                        <div class="form-actions">
+                            <button class="site-button" type="submit">save entry</button>
+                            <button class="text-link-button" type="button" id="guestbook-reset">restore sample entries</button>
+                            <button class="text-link-button" type="button" id="guestbook-clear">clear local entries</button>
+                        </div>
+                        <p class="click-copy" data-status-message>entries stay in this browser only</p>
+                    </form>
+                </section>
+
+                <section class="page-section" id="entries">
+                    <h2 class="page-title">entries</h2>
+                    <div id="guestbook-entries" class="entries-list"></div>
+                </section>
+
+                <section class="page-section">
+                    <h2 class="page-title">rules</h2>
+                    <ul class="notice-list">
+                        <li>Be human. Leave something that sounds like it came from a person, not a script.</li>
+                        <li>Link your own site if you have one. Personal websites should point at each other.</li>
+                        <li>No spam, no hate, no pretending this is server-backed. It is local storage on purpose.</li>
+                    </ul>
+                </section>
+
+                <pre class="ascii-footer">
+============================================
+       old-web ritual, modern honesty
+============================================
+                </pre>
+            </div>
+        </main>
+
+        <aside class="deco-sidebar right">
+            <pre class="deco-art">
+:
+:
+:-:
+:
+:
+:-:
+:
+:
+            </pre>
+        </aside>
+    </div>
+
+    <script src="/assets/js/dots-bg.js"></script>
+    <script src="/assets/js/site.js"></script>
     <script src="/assets/js/guestbook.js"></script>
 </body>
 </html>

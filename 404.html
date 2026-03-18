@@ -3,138 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found :: Pingüinito Loco's Terminal</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/themes.css">
-    <style>
-        .error-art {
-            font-family: monospace;
-            font-size: 10px;
-            line-height: 1.2;
-            text-align: center;
-            margin: 30px 0;
-            white-space: pre;
-            overflow-x: auto;
-        }
-        
-        .glitch {
-            animation: glitch 1s infinite;
-        }
-        
-        @keyframes glitch {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-        }
-        
-        .error-code {
-            font-size: 72px;
-            font-weight: bold;
-            text-shadow: 0 0 20px currentColor;
-            margin: 20px 0;
-        }
-    </style>
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <title>404 :: capi_nemoo</title>
+    <link rel="stylesheet" href="/assets/css/tilde-style.css">
 </head>
-<body class="theme-green">
-    <div class="crt-overlay"></div>
-    
-    <div class="container">
-        
-        <header class="site-header">
-            <h1 class="site-title glitch">ERROR 404</h1>
-            <p class="site-subtitle">~ Page Not Found ~</p>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="/index.html">HOME</a></li>
-                    <li><a href="/blog/index.html">BLOG</a></li>
-                    <li><a href="/manifestos/index.html">MANIFESTOS</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <section class="content-section text-center">
-            <div class="error-code glitch">404</div>
-            <h2 class="section-title">Page Not Found</h2>
-            <p>
-                The page you are looking for has vanished into the digital void. Perhaps it never existed. 
-                Perhaps it was deleted in the great server crash of '99. Perhaps you mistyped the URL.
-            </p>
-            <p>
-                Or perhaps... you have discovered a secret path to nowhere.
-            </p>
-        </section>
-        
-        <section class="content-section">
-            <div class="error-art">
-    _______________
-   /               \
-  /  X         X   \
- |                  |
- |    \       /     |
- |     \_____/      |
-  \                /
-   \______________/
-   
-   BROKEN LINK
-   DETECTED
-            </div>
-        </section>
-        
-        <section class="content-section">
-            <h2 class="section-title">What Happened?</h2>
-            <p>
-                In the old internet, broken links were a fact of life. Websites disappeared. Servers went 
-                offline. GeoCities accounts were deleted. The web was fragile, ephemeral, constantly changing.
-            </p>
-            <p>
-                This 404 page is a reminder of that fragility. But it's also a reminder that the web is 
-                resilient. When one page disappears, we create another. When one site goes down, we build 
-                a new one. The web persists because we persist.
-            </p>
-        </section>
-        
-        <section class="content-section">
-            <h2 class="section-title">Where to Go From Here</h2>
-            <ul>
-                <li><a href="/index.html">Return to the Home Page</a></li>
-                <li><a href="/blog/index.html">Read the Blog</a></li>
-                <li><a href="/manifestos/index.html">Explore the Manifestos</a></li>
-                <li><a href="/toys/terminal.html">Try the Terminal</a></li>
-                <li><a href="/guestbook/index.html">Sign the Guestbook</a></li>
-            </ul>
-        </section>
-        
-        <section class="content-section text-center">
-            <p>
-                <em>"Not all who wander are lost, but this page definitely is."</em>
-            </p>
-            <p class="mt-2">
-                <a href="/index.html" class="btn">GO HOME</a>
-            </p>
-        </section>
-        
-        <footer class="site-footer">
-            <p>&copy; 1999-2025 Pingüinito Loco</p>
-            <p style="font-size: 10px;">
-                Error Code: 404 • Status: Not Found • Mood: Confused
-            </p>
-        </footer>
-        
+<body>
+    <div class="i3bar">
+        <div class="i3bar-left">
+            <a href="/index.html" class="i3-workspace">home</a>
+            <a href="/pages/blog/index.html" class="i3-workspace">essays</a>
+            <a href="/pages/projects/index.html" class="i3-workspace">projects</a>
+        </div>
+        <div class="i3bar-right">
+            <span class="i3-module">404 / missing route</span>
+            <span class="i3-module">static html/css/js</span>
+            <span class="i3-module" data-site-clock data-label="time">time: loading...</span>
+        </div>
     </div>
-    
-    <script src="/assets/js/main.js"></script>
-    <script>
-        // Extra glitch effect for 404 page
-        setInterval(() => {
-            if (Math.random() > 0.9) {
-                document.body.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`;
-                setTimeout(() => {
-                    document.body.style.transform = 'translate(0, 0)';
-                }, 100);
-            }
-        }, 2000);
-    </script>
+
+    <canvas id="dots-bg"></canvas>
+
+    <div class="corner-images">
+        <img src="/assets/images/dprofamilyt.gif" alt="Retro computer illustration" class="corner-img left">
+        <img src="/assets/images/powerlines1.gif" alt="Powerlines" class="center-img">
+        <img src="/assets/images/dprofamilyt.gif" alt="Retro computer illustration" class="corner-img right">
+    </div>
+
+    <div class="blog-layout">
+        <aside class="deco-sidebar left">
+            <pre class="deco-art">
+!
+!
+!-!
+!
+!
+!-!
+!
+!
+            </pre>
+        </aside>
+
+        <main class="blog-main">
+            <div class="blog-container page-shell">
+                <pre class="ascii-header">
++------------------------------------------+
+|                 E R R O R 404            |
+|             route not found              |
++------------------------------------------+
+                </pre>
+
+                <p class="page-intro">You hit a page that does not exist anymore, never existed, or got cleaned up during the rebuild.</p>
+
+                <section class="page-section">
+                    <div class="error-figure">
+   ______________________
+  /                      \
+ |   broken link alert    |
+ |   the file is gone     |
+ |   the site moved on    |
+  \______________________/
+                    </div>
+                </section>
+
+                <section class="page-section">
+                    <h2 class="page-title">what this means</h2>
+                    <ul class="notice-list">
+                        <li>The older version of the site had routes that pointed to pages or assets that were never finished.</li>
+                        <li>This rebuild removes most of those fake paths, so landing here should be rarer now.</li>
+                        <li>If you still found one, the right move is to head back into the pages that are actually maintained.</li>
+                    </ul>
+                </section>
+
+                <section class="page-section">
+                    <h2 class="page-title">working routes</h2>
+                    <div class="site-map-links">
+                        <a href="/index.html">home</a>
+                        <a href="/pages/projects/index.html">projects</a>
+                        <a href="/pages/blog/index.html">essays</a>
+                        <a href="/pages/manifestos/index.html">manifestos</a>
+                        <a href="/pages/guestbook/index.html">guestbook</a>
+                        <a href="/pages/yo/gallery.html">gallery</a>
+                    </div>
+                </section>
+
+                <pre class="ascii-footer">
+============================================
+          not all dead links are art
+============================================
+                </pre>
+            </div>
+        </main>
+
+        <aside class="deco-sidebar right">
+            <pre class="deco-art">
+!
+!
+!-!
+!
+!
+!-!
+!
+!
+            </pre>
+        </aside>
+    </div>
+
+    <script src="/assets/js/dots-bg.js"></script>
+    <script src="/assets/js/site.js"></script>
 </body>
 </html>

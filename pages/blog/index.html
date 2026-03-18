@@ -12,13 +12,13 @@
     <div class="i3bar">
         <div class="i3bar-left">
             <a href="/index.html" class="i3-workspace">home</a>
-            <span class="i3-workspace active">blog</span>
+            <span class="i3-workspace active">essays</span>
             <a href="/pages/projects/index.html" class="i3-workspace">projects</a>
         </div>
         <div class="i3bar-right">
-            <span class="i3-module">🟢 online</span>
-            <span class="i3-module">📞 407-529-4095</span>
-            <span class="i3-module" id="dc-time">📅 loading...</span>
+            <span class="i3-module">essay archive</span>
+            <span class="i3-module">static html/css/js</span>
+            <span class="i3-module" data-site-clock data-label="time">time: loading...</span>
         </div>
     </div>
     
@@ -72,8 +72,8 @@
                 
                 <div class="blog-posts">
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> The Death of the Small Web and Its Resurrection
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> The Death of the Small Web and Its Resurrection
                             <span class="post-date">Jan 15, 2025</span>
                         </button>
                         <div class="post-content">
@@ -85,8 +85,8 @@
                     </article>
                     
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> Why Linux Culture Still Matters in 2025
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> Why Linux Culture Still Matters in 2025
                             <span class="post-date">Jan 8, 2025</span>
                         </button>
                         <div class="post-content">
@@ -98,8 +98,8 @@
                     </article>
                     
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> The Function and Aesthetics of Old Websites
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> The Function and Aesthetics of Old Websites
                             <span class="post-date">Dec 28, 2024</span>
                         </button>
                         <div class="post-content">
@@ -111,8 +111,8 @@
                     </article>
                     
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> How to Build Without Permission
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> How to Build Without Permission
                             <span class="post-date">Dec 20, 2024</span>
                         </button>
                         <div class="post-content">
@@ -124,8 +124,8 @@
                     </article>
                     
                     <article class="blog-post">
-                        <button class="post-toggle" onclick="togglePost(this)">
-                            <span class="post-icon">[+]</span> The Romance of the Terminal
+                        <button class="post-toggle" type="button" data-toggle-next data-icon-open="[-]" data-icon-closed="[+]">
+                            <span class="post-icon" data-toggle-icon>[+]</span> The Romance of the Terminal
                             <span class="post-date">Dec 10, 2024</span>
                         </button>
                         <div class="post-content">
@@ -185,30 +185,6 @@
     </div>
     
     <script src="/assets/js/dots-bg.js"></script>
-    <script>
-        // Update DC time
-        function updateDCTime() {
-            const now = new Date();
-            const dcTime = now.toLocaleString('en-US', {
-                timeZone: 'America/New_York',
-                weekday: 'short',
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            document.getElementById('dc-time').textContent = '📅 ' + dcTime;
-        }
-        updateDCTime();
-        setInterval(updateDCTime, 60000);
-        
-        // Toggle blog post
-        function togglePost(btn) {
-            const content = btn.nextElementSibling;
-            const icon = btn.querySelector('.post-icon');
-            content.classList.toggle('open');
-            icon.textContent = content.classList.contains('open') ? '[-]' : '[+]';
-        }
-    </script>
+    <script src="/assets/js/site.js"></script>
 </body>
 </html>
